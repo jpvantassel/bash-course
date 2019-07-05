@@ -1,7 +1,10 @@
 # Bash Basics
-Joseph Vantassel, The University of Texas at Austin<br>
-Sources:<br>
-[chmod](https://ss64.com/bash/chmod.html)
+> Joseph Vantassel, The University of Texas at Austin<br>
+
+[![License](https://img.shields.io/badge/license-CC--By--SA--4.0-brightgreen.svg)](https://github.com/jpvantassel/bash-course/blob/master/Licence.md)
+
+__Sources:__<br>
+>[chmod](https://ss64.com/bash/chmod.html)<br>
 [string manipulation](http://tldp.org/LDP/abs/html/string-manipulation.html)
 
 ## Command Line Basics
@@ -215,7 +218,7 @@ echo $val       # --> val=23
 
 aa=$((val++))   # Post-increment does not effect assigned value
 echo $aa        # --> aa=23
-echo $val       # --> val=24 
+echo $val       # --> val=24
 
 bb=$((val--))   # Post-decrement does not effect assigned value
 echo $bb        # --> bb=24
