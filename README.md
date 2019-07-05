@@ -6,6 +6,7 @@
 __Sources:__<br>
 >[chmod](https://ss64.com/bash/chmod.html)<br>
 [string manipulation](http://tldp.org/LDP/abs/html/string-manipulation.html)
+[color and styling](https://misc.flogisoft.com/bash/tip_colors_and_formatting)
 
 ## Command Line Basics
 ```bash
@@ -236,3 +237,91 @@ echo $val       # --> val=52
 val=$((val-=2))
 echo $val       # --> val=50
 ```
+
+### Comparison Operations
+Perform comparisons between two variables.<br>
+__String Comparisons__<br>
+`[[ A symbol B ]]` <-- Note the spaces, FALSE==1, TRUE==-0!<br><br>
+_Symbols_
+ - __<__  <-- Less than
+ - __>__  <-- Greater than
+ - __<=__ <-- Less than or equal to
+ - __>=__ <-- Greater than or equal to
+ - __==__ <-- Equal
+ - __!=__ <-- Not equal
+
+__Integer Comparison__<br>
+`[[ A symbol B ]]` <-- Note the spaces, FALSE==1, TRUE==-0!<br><br>
+ _Symbols_
+ - __-lt__  <-- Less than
+ - __-gt__  <-- Greater than
+ - __-le__ <-- Less than or equal to
+ - __-ge__ <-- Greater than or equal to
+ - __-eq__ <-- Equal
+ - __-ne__ <-- Not equal
+
+__More Complex Conditions__<br>
+_Symbols_
+- __&&__  <-- And
+- __||__  <-- Or
+- __!__   <-- Not
+- __-z__  <-- Null?
+- __-n__  <--Not null?
+
+```bash
+#!/bin/bash
+MakeAnExample="TODO"
+```
+
+## Styling
+
+### Coloring Text
+You can color and style text in Bash shell for error messages etcetra.<br>
+Here is a simple example:
+```Bash
+#!/bin/bash
+echo -e '\033[34;42;4m Blue on Green \033[0m'
+```
+`-e` informs echo that the following string contains an escape sequence.<br>
+`\033` is the escape string other options include `\e`, `\x1B`.<br>
+`[34;42;4m` denotes the formating 34=foreground, 42=background, 4=format.<br>
+`Blue on Green` denotes the text to be formatted.<br>
+`\033` is again an escape string.<br>
+`[0m` is a formatting string to return later text to default.<br>
+Some more example:
+```bash
+#!/bin/bash
+echo -e '\e[90;49mGray on Black\e[0m'
+echo -e '\e[34;100mBlue on Gray\e[0m'
+echo -e '\033[38;34;4mUnderlined Blue on Black\033[0m'
+echo -e '\e[34;100;5mBlinking Blue on Gray\e[0m'
+```
+A full list of coloring and styling options can be found [here](https://misc.flogisoft.com/bash/tip_colors_and_formatting).
+
+## Character Usage
+Many of the same characters are used throughout Bash for various purposes that only become obvious based on their context. This section will include commonly used characters and what they may be used for. This is certainly not an exhaustive list.
+
+### Braces { }
+Braces can be used to:
+ - Delimit variables unambiguously. `a="Ta"; b="Da"; ab="Foo"; c=${a}${b} not c=ab`.
+ - Slice strings: `lstring="This That These"; this=${lstring:0:4}`.
+ - Make substitutions, like sed:
+ - Use a default value.
+ - Brace expansion.
+
+### Parentheses ( )
+Parentheses __( )__ can be used to:
+ - Define an array of values. `x=( 1 2 3 4 5 6 ); echo ${x[3]}`.
+
+Double Parentheses __(( ))__ creates a sub-shell and can be used to:
+ - Define arithmetic operations.
+  + Allow omission of dollar signs on integer Variables.
+  + Allow the inclusion of spaces around operators.
+  + `a=5; b=10; c=$(( a * b )); echo ${c}`
+
+### Bracket [ ]
+Brackets __[ ]__ can be used to:
+ - Define an if conditions. `x=1; if [[ x -lt 5 ]]; then echo "..."; fi`.
+ - Call a program name.
+
+Double Brackets __[[ ]]__ is very similar to single brackets __[ ]__, but double brackets __[[ ]]__ is a bash built-in and is therefore saver and less general than single brackets __[ ]__ and should generally be preferred. A more thorough discussion code be found [here](http://mywiki.wooledge.org/BashFAQ/031).
