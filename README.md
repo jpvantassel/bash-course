@@ -1,4 +1,4 @@
-# An Introduction to Bash and the Linux Shell
+# An Introduction to the Bourne Again SHell
 
 > Joseph P. Vantassel, The University of Texas at Austin
 
@@ -9,12 +9,12 @@ If you are viewing this on GitHub, you will want to view the full site
 
 ## About
 
-This course covers a number of introductory topics related to Bash (the Bourne
-Again SHell) and the Linux shell. This course is not meant to be exhaustive in
-its coverage of all topics nor in its coverage of any of the given topics, but
-rather attempts to provide the basic information for novice users to become
-moderately proficient at navigating the shell and performing basic tasks
-efficiently through the command line and scripting.
+This course covers a number of introductory topics related to the Bourne
+Again SHell (Bash). This course does not claim to be exhaustive in
+its coverage of topics related to Bash nor does it assert that its coverage
+on any particular topic is exhaustive. Rather, this course's purpose is to
+provide basic information to novice users, such that they can become moderately
+proficient at navigating the Bash shell.
 
 All the best,
 
