@@ -4,12 +4,36 @@
 
 [![License](https://img.shields.io/badge/license-CC--By--SA--4.0-brightgreen.svg)](https://github.com/jpvantassel/bash-course/blob/master/LICENSE.md)
 
+## The Shell
+
+Before jumping into the Bourne Again Shell (Bash), let's cover the basic
+terminology and clear up any misconceptions.
+
+_What is the shell?_ The shell is the interface between the user and the kernel.
+Think of the shell as a program which translates human-understandable commands
+to computer-understandable commands. The user interacts with the shell using
+the terminal either directly by typing commands or indirectly by executing
+shell scripts (i.e., written and reusable shell instructions).
+
+_What is the kernel?_ The kernel is part of the operating system that manages
+the computer's CPU(s), memory, and devices. Users generally do not interact with
+the kernel directly, but rather use the shell as an intermediary.
+
+_What is Bash?_ Bash is a type of shell. There are many different shells from
+which to choose, however Bash is by far the most popular.
+
+In summary, the user interacts through the terminal with the shell. This shell
+is most typically the Bourne Again Shell (Bash), though it does not have to be.
+The shell translates the user commands into instructions to the kernel. The
+kernel then manages the low-level operations which include the computer's
+CPU(s), memory, and devices.
+
 ## Command Line Basics
 
 ```bash
 man <command>               # Display manual information for command
 man bash                    # Display manual on bash
-echo $BASH_VERSION          # Echo bash version number to screen
+echo $BASH_VERSION          # Print bash version number to screen
 ls -l                       # List directory contents (-l is for long listing)
 rmdir <dirname>             # Remove directory
 clear                       # Clear terminal
@@ -75,9 +99,10 @@ want to append to the file replace `>` with `>>`.
 Each file has a permission (e.g., read, write, and execute).
 
 ```bash
-chmod [ugoa][+-=][rwxst]      # [ugoa] User, Group, Other, All
+chmod [ugoa][+-=][rwxst]
+# [ugoa] User, Group, Other, All
 # [+=-] Add, Equal, Remove
-# [rwxst] Read, Write, Execute, Set User/Group ID on Execute, Restricted deletion flag or sticky bit.
+# [rwxst] Read, Write, Execute, Set ID on Execute, Restricted deletion flag.
 ```
 
 Can also use binaries to set the permissions
@@ -93,7 +118,7 @@ chmod 710                     # chmod u=rwx, chmod g+
 ## grep
 
 grep is a command line tool for finding patterns in plain text. grep
-stands for (globally search a reguar expression and print).
+stands for (globally search a regular expression and print).
 
 ```bash
 grep <find> <filename>        # Searches a particular filename
