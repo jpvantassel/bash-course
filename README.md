@@ -1,4 +1,4 @@
-# An Introduction to the Bourne Again SHell
+# Introduction to the Bourne Again SHell
 
 > Joseph P. Vantassel, The University of Texas at Austin
 

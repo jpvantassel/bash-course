@@ -9,32 +9,34 @@ especially while performing loop operations.
 
 There are two types of arrays in `bash`:
 
-- __Indexed Arrays__: Vector array, where indices are integers [0..N].
+- __Indexed Arrays__: Vector array, where indices are integers [0..N], and
 - __Associative Arrays__: Similar to maps or dictionaries in other languages.
 Each entry is a key-value pair. The order is not guaranteed.
 
 ## Indexed Arrays
 
 ```bash
-array=(entry1 entry2 entry3)        # Create an array with three entires.
-echo ${#array[@]}                   # --> 3 Echo array size.
-array[1]=spam                       # Replace the second entry with spam.
-echo ${array[@]}                    # Echo entire array - as words.
-echo ${array[*]}                    # Echo entire array - as single word.
-array+=(entry4 entry5)              # Append two new entries to the list.
-echo ${#array[@]}                   # --> 5 Echo arrays new size.
-echo ${!array[@]}                   # View array indices.
-unset array[1]                      # Delete first entry
-unset array                         # Delete the entire array
+array=(e0 e1 e2)                          # Create an array with three entires.
+echo ${array[1]}   # -> e1                # Index array.
+echo ${array[@]}   # -> e0 e1 e2          # View array - as words.
+echo ${#array[@]}  # -> 3                 # Array size.
+echo ${!array[@]}  # -> 0 1 2             # View array indices.
+array[1]=spam                             # Replace entry.
+array+=(e3 e4)                            # Append to array.
+echo ${#array[@]}  # -> 5                 # Echo array's size.
+echo ${!array[@]}  # -> 0 1 2 3 4         # View array indices.
+unset array[1]                            # Delete entry.
+unset array                               # Delete entire array.
 ```
 
 ## Associative Arrays
 
 ```bash
-declare -A assoc_array                    # Have to declare associative arrays.
-assoc_array=([key1]=entry1 [key2]=entry2) # Add two entries.
-echo ${!assoc_array[@]}                   # View array keys.
-echo ${assoc_array["key1"]}               # --> entry1 View corresponding value.
+declare -A assoc_array                    # Need to declare associative arrays.
+assoc_array=([k0]=e0 [k1]=e1)             # Add two entries.
+echo ${assoc_array[@]}     # -> e0 e1     # View array values.
+echo ${!assoc_array[@]}    # -> k0 k1     # View array keys.
+echo ${assoc_array["k0"]}  # -> e0        # View corresponding value.
 ```
 
 ## Sources
